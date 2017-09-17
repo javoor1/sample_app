@@ -10,11 +10,6 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-<<<<<<< HEAD
-=======
-
->>>>>>> filling-layout
+//= require rails-ujs
 //= require turbolinks
 //= require_tree .
-
-#falta //= require rails-ujs

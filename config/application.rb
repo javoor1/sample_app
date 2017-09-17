@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+
 module SampleApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
@@ -16,3 +18,6 @@ module SampleApp
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+
+config.assets.initialize_on_precompile = false
