@@ -1,3 +1,36 @@
 <% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
-<p>This will be a signup page for new users.</p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+
+<!-- #Este form_for está "intuyendo" que debe hacer un POST a users/create sin haberlo dicho de manera explícita
+
+Rails creates the form tag using the @user object: because every Ruby object knows its own class (Section 4.4.1), Rails figures out that @user is of class User; moreover, since @user is a new user, Rails knows to construct a form with the post method, which is the proper verb for creating a new object. 
+
+The result is the next:
+
+<form action="/users" class="new_user" id="new_user" method="post">
+
+ -->
