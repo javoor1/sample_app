@@ -4,9 +4,11 @@ class UsersController < ApplicationController
   end
 
   def show
-  	puts "hola"
-  	p params
-  	puts @user = User.find_by(params[:id])
+  	puts "dentro de show"
+    puts "*******"
+  	p params[:id]
+    puts "*******"
+  	p @user = User.find_by_id(params[:id]) #p @user = User.find_by(params[:id]) no funcionaba regresaba el User con id = 1 SIEMPRE!
   end
 
   def create
@@ -14,9 +16,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)    # Not the final implementation!
     if @user.save
       p "SAVED"# Handle a successful save.
+      log_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
       #es lo mismo que: redirect_to user_url(@user)
+      #redirige al show del user específico.
     else
       render 'new'
     end
