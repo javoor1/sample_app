@@ -8,6 +8,8 @@ module SessionsHelper
 
 
   # Returns the current logged-in user (if any).
+  # En este caso sólo lo ocupamos para el HTML y mostrar el dropdown de account para
+  # users con sesión iniciada
   # Si no encuentra un user loggeado, lo busca y asigna según el session
   # al final el resultado será una instancia de un user
   def current_user
