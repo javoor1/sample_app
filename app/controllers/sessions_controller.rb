@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
     p user
     if user && user.authenticate(params[:session][:password])
       p "dentro del IF user"
-      log_in(user)
+      log_in(user) #llamas al método que crea la session
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
       # redirect_to user_url(user.id)
       # redirect_to action: "show", id: user.id
@@ -21,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-  	log_out
+  	log_out if logged_in?
     redirect_to root_path
     # redirect_to root_url
   end
